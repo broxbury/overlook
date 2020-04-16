@@ -189,7 +189,8 @@ describe('Rooms', function() {
     ]);
   });
   it.only('should filter rooms by room type', function() {
-    rooms.filterRoomsByType('2020/01/22', bookingsData);
+    rooms.getAvailableRoomsByDate('2020/01/22', bookingsData);
+    rooms.filterRoomsByType('2020/01/22', bookingsData, 'single room');
     // rooms.filterRoomsByRoomType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData),'single room');
     // console.log(rooms.filterRoomsByType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData),'single room')
     // );
