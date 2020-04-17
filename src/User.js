@@ -27,6 +27,7 @@ class User {
       amountSpent: this.calculateUserSpending(roomsData)
     }
   }
+  
 
 }
 export default User;

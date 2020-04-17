@@ -1,18 +1,22 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
+import datepicker from 'js-datepicker'
 import $ from 'jquery';
+import Bookings from './Bookings';
+import User from './User';
+import Rooms from './Rooms'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/history.png'
 import './css/base.scss';
-// fetchUserData();
+import domUpdates from './domUpdates';
+import scripts from './scripts'
+
 let userData;
 let bookingsData;
 let roomsData;
+let bookings;
+let rooms;
 
 function fetchData() {
   let fetchedUserData =
@@ -47,17 +51,44 @@ fetchData().then(data => {
   })
   .catch(error => console.log(error.message))
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
 function sortData(userData, bookingsData, roomsData) {
-  console.log(userData, bookingsData, roomsData);
-
+  index.loadData(userData, bookingsData, roomsData);
 }
 const index = {
   userData: {},
-
+  loadData(userData, bookingsData, roomsData) {
+    this.userData = userData;
+     bookings = new Bookings(bookingsData);
+     rooms = new Rooms(roomsData);
+  },
+  createUser(user) {
+    currentUser = new User(user);
+  }
 }
+
+$('#toggle-manager-log-in').on('click', function (event) {
+  $('.log-in-container').toggleClass('hidden');
+  $('.log-in-container-manager').toggleClass('hidden');
+});
+
+$('#toggle-user-log-in').on('click', function (event) {
+  $('.log-in-container').toggleClass('hidden');
+  $('.log-in-container-manager').toggleClass('hidden');
+});
+
+const searchDate = datepicker('#user-datepicker', {
+  formatter: (input, date, instance) => {
+    const value = date.toISOString().slice(0, 10).replace(/-/g, "/");
+    input.value = value;
+  }
+});
+
+$('.search-date').on('click', function(event) {
+  if($('#user-datepicker').val()) {
+    let selectedDate = $('#user-datepicker').val();
+    $('.bookings-main').toggleClass('hidden');
+  }
+})
 
 export default index;
 

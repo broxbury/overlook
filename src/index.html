@@ -12,9 +12,105 @@
 </head>
 
 <body>
-  <h1></h1>
+  <main class="log-in hidden">
+    <!-- user log in portal -->
+    <section class="log-in-container">
+      <section class="manager-log-in">
+        <button id="toggle-manager-log-in">Manager Log-in</button>
+      </section>
+      <section class="log-in-inputs">
+        <section class="user-name">
+          <label for="user-name-input"></label>
+          <input class="user-name-input" placeholder="Customer Username" type="text">
+        </section>
+        <section class="password">
+          <section class="password">
+            <label for="user-name-input"></label>
+            <input class="password-input" placeholder="Password" type="text">
+            <label for="log-in-submit"></label>
+            <section class="user-log-in-btn">
+              <button class="log-in-btn" placeholder="Log-in">Log-In</button>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+    <!-- manager log in portal -->
+    <section class="log-in-container-manager hidden">
+      <section class="user-log-in">
+        <button id="toggle-user-log-in">User Log-in</button>
+      </section>
+      <section class="log-in-inputs">
+        <section class="user-name">
+          <label for="user-name-input"></label>
+          <input class="user-name-input" placeholder="Manager ID" type="text">
+        </section>
+        <section class="password">
+          <section class="password">
+            <label for="user-name-input"></label>
+            <input class="password-input" placeholder="Password" type="text">
+            <section class="user-log-in-btn">
+              <button class="log-in-btn-manager" placeholder="Log-in">Log-In</button>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </main>
+  <main class="main-page">
+    <!-- main page HTML -->
+    <section class="main-page-user">
+      <header class="nav-header">
+        <!-- <section class="booking-history"> -->
+        <section class="booking-history-img">
+          <img class="history" src="./images/history.png" alt="history icon">
+          <h2 class="bookings-header">Previous Bookings</h2>
+          <!-- </section> -->
+        </section>
+        <section class="upcoming-reservations">
+          <!-- <section class="booking-history-img"> -->
+          <img class="history" src="./images/history.png" alt="history icon">
+          <h2 class="bookings-header">Upcoming Reservations</h2>
+          <!-- </section> -->
+        </section>
+      </header>
+      <section class="bookings-main">
+        <section class="calendar-container">
+        </section>
+        <section class="search-main">
+          <section class="log-in-inputs">
+            <h2 class="book-next">Your Perfect Room Awaits You!</h2>
+            <section class="date-picker">
+              <label for="date-picker"></label>
+              <input id="user-datepicker" placeholder="Enter Date yyyy/mm/dd" type="text">
+              <label for="log-in-submit"></label>
+              <section class="user-log-in-btn">
+                <button class="search-date" placeholder="Search">Search</button>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+      <!-- start user results page -->
+      <section class="user-results hidden">
+      <header class="subheader-results">
+      </header>
+      <section class="search-results-cards">
+        <section class="room-card">
+          <section class="room-info">
+            <h3 class="room-card-header">Junior Suite</h3>
+          <section class="room-icons">
+            <img class="breakfast-img" src="../images/breakfast.png">
+            <img class="room-service-img" src="../images/sleep.png">
+          </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </main>
 
-  <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+
+  <!-- <img src="./images/history.png" alt="turing logo" height="30px" width="30px"> -->
 
   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
 </body>
