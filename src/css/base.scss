@@ -35,6 +35,7 @@ body {
   display: block;
   display: inline-block;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
   box-sizing: content-box;
   margin-top: 2em;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
@@ -42,7 +43,7 @@ body {
   border-radius: 3px;
   background: transparent;
   padding: 1em;
-  width: 42%;
+  width: 100%;
   height: 20%;
   color: black;
   font-family: sans-serif;
@@ -55,7 +56,6 @@ body {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-border-radius: 3px;
-  display: block;
   display: inline-block;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   cursor: pointer;
@@ -66,7 +66,7 @@ body {
   border-radius: 3px;
   background: white;
   padding: 1em;
-  width: 42%;
+  width: 100%;
   height: 20%;
   color: black;
   font-family: sans-serif;
@@ -91,7 +91,7 @@ body {
   border-radius: 3px;
   background: white;
   padding: 1em;
-  width: 42%;
+  width: 100%;
   height: 20%;
   color: black;
   font-family: sans-serif;
@@ -167,9 +167,8 @@ body {
 }
 
 .log-in-inputs {
-  display: block;
+  display: grid;
   justify-content: center;
-  margin-left: 33%;
   padding-top: 13%;
 }
 
@@ -187,15 +186,42 @@ body {
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  display: block;
   display: inline-block;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
   box-sizing: content-box;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   border: 2px solid white;
   border-radius: 3px;
   background: transparent;
   padding: 1em;
+  width: 100%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.user-name-input-manager {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
   color: black;
   font-family: sans-serif;
   font-size: 1em;
@@ -212,9 +238,9 @@ body {
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  display: block;
   display: inline-block;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
   box-sizing: content-box;
   margin-top: 2em;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
@@ -222,15 +248,52 @@ body {
   border-radius: 3px;
   background: transparent;
   padding: 1em;
+  width: 100%;
   height: 20%;
   color: black;
   font-family: sans-serif;
   font-size: 1em;
   text-overflow: clip;
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66)
+}
+
+.password-input-manager {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66)
 }
 
 .nav-header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  // background-color: #66C3FF;
+  height: 7vh;
+}
+
+.nav-header-from-manager {
   display: flex;
   justify-content: space-between;
   border: 1px solid white;
@@ -304,7 +367,6 @@ body {
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  display: block;
   display: inline-block;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   box-sizing: content-box;
@@ -314,7 +376,7 @@ body {
   border-radius: 3px;
   background: transparent;
   padding: 1em;
-  width: 42%;
+  width: 100%;
   height: 20%;
   color: black;
   font-family: sans-serif;
@@ -322,7 +384,19 @@ body {
   text-overflow: clip;
   text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
 }
-.room-card {
+.room-card-single-room {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/single-room.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+.room-card-junior-suite {
   display: block;
   cursor: pointer;
   margin: 1em;
@@ -334,17 +408,54 @@ body {
   width: 95%;
   height: 300px;
 }
-.room-card:hover {
+.room-card-suite {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/suite.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+.room-card-residential-suite {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/residential.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+
+.room-card-residential-suite:hover {
+  opacity: 90%;
+}
+.room-card-suite:hover {
+  opacity: 90%;
+}
+.room-card-single-room:hover {
+  opacity: 90%;
+}
+.room-card-junior-suite:hover {
   opacity: 90%;
 }
 
 .search-results-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  background-attachment: fixed;
   background-image: url("../images/hotel-room-clean.jpg");
+  background-position-x: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
 }
+
 .room-info {
   border: 1px solid white;
   background-color: #DCEDFF;
@@ -367,4 +478,37 @@ body {
 .room-icons {
   display: flex;
   justify-content: space-around;
+}
+.reservations-page {
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-size: cover;
+}
+td, th {
+  border: 3px solid #999;
+  padding: 0.5rem;
+}
+.past-reservations-user {
+  display: grid;
+  background-attachment: fixed;
+}
+.past-bookings {
+  margin-top: 3em;
+}
+.past-reservations {
+margin-top: 2em;
+}
+.nav-header-from-reservations {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  // background-color: #66C3FF;
+  height: 7vh;
+}
+.manager-portal {
+  display: grid;
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-size: cover;
+  height: 100vh;
 }

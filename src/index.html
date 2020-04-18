@@ -21,12 +21,12 @@
       <section class="log-in-inputs">
         <section class="user-name">
           <label for="user-name-input"></label>
-          <input class="user-name-input" placeholder="Customer Username" type="text">
+          <input class="user-name-input" placeholder="Customer Username" type="text" value="customer">
         </section>
         <section class="password">
           <section class="password">
             <label for="user-name-input"></label>
-            <input class="password-input" placeholder="Password" type="text">
+            <input class="password-input" placeholder="Password" type="text" value="overlook2020">
             <label for="log-in-submit"></label>
             <section class="user-log-in-btn">
               <button class="log-in-btn" placeholder="Log-in">Log-In</button>
@@ -43,12 +43,12 @@
       <section class="log-in-inputs">
         <section class="user-name">
           <label for="user-name-input"></label>
-          <input class="user-name-input" placeholder="Manager ID" type="text">
+          <input class="user-name-input-manager" placeholder="Manager ID" type="text">
         </section>
         <section class="password">
           <section class="password">
             <label for="user-name-input"></label>
-            <input class="password-input" placeholder="Password" type="text">
+            <input class="password-input-manager" placeholder="Password" type="text" value="overlook2020">
             <section class="user-log-in-btn">
               <button class="log-in-btn-manager" placeholder="Log-in">Log-In</button>
             </section>
@@ -57,13 +57,13 @@
       </section>
     </section>
   </main>
-  <main class="main-page">
+  <main class="main-page hidden">
     <!-- main page HTML -->
     <section class="main-page-user">
       <header class="nav-header">
         <!-- <section class="booking-history"> -->
         <section class="booking-history-img">
-          <img class="history" src="./images/history.png" alt="history icon">
+          <img class="history" src="./images/booking.png" alt="history icon">
           <h2 class="bookings-header">Previous Bookings</h2>
           <!-- </section> -->
         </section>
@@ -93,20 +93,70 @@
       </section>
       <!-- start user results page -->
       <section class="user-results hidden">
-      <header class="subheader-results">
-      </header>
-      <section class="search-results-cards">
-        <section class="room-card">
-          <section class="room-info">
-            <h3 class="room-card-header">Junior Suite</h3>
-          <section class="room-icons">
-            <img class="breakfast-img" src="../images/breakfast.png">
-            <img class="room-service-img" src="../images/sleep.png">
-          </section>
-          </section>
+        <header class="subheader-results">
+        </header>
+        <section class="search-results-cards" id="insert-results-here">
         </section>
       </section>
+  </main>
+  <!-- start past reservations page -->
+  <main class="reservations-page hidden">
+    <header class="nav-header-from-reservations">
+      <section class="booking-history-img">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Previous Bookings</h2>
+      </section>
+      <section class="upcoming-reservations">
+        <img class="history" src="./images/booking.png" alt="history icon">
+        <h2 class="bookings-header">Upcoming Reservations</h2>
+      </section>
+    </header>
+    <section class="past-reservations-user">
+      <h2 class="past-reservations">Your Booking History:</h2>
+
+      <table class="past-bookings">
+        <thead>
+          <tr>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Room Cost</th>
+          </tr>
+        </thead>
+         <tbody class ="insert-table-data">
+          <!-- <tr>
+            <td>Jim</td>
+            <td>00001</td>
+            <td>Blue</td>
+          </tr>
+          <tr>
+            <td>Sue</td>
+            <td>00002</td>
+            <td>Red</td>
+          </tr>
+          <tr>
+            <td>Barb</td>
+            <td>00003</td>
+            <td>Green</td>
+          </tr> -->
+        </tbody>
+      </table>
+      <h2 class="total-cost"></h2>
     </section>
+  </main>
+  <!-- managers page beings here -->
+  <main class="manager-page">
+    <header class="nav-header-from-manager">
+      <section class="booking-history-img">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Today's Available Rooms</h2>
+      </section>
+      <section class="upcoming-reservations">
+        <img class="history" src="./images/booking.png" alt="booking icon">
+        <h2 class="bookings-header">Upcoming Reservations</h2>
+      </section>
+    </header>
+    <section class="manager-portal">
+      <h1 class="briefing">Your Daily Briefing</h1>
   </main>
 
 

@@ -1,7 +1,6 @@
 class Rooms {
   constructor(rooms) {
     this.rooms = rooms;
-
   }
 
   getAvailableRoomsByDate(date, bookings) {
