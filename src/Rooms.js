@@ -1,6 +1,7 @@
 class Rooms {
   constructor(rooms) {
     this.rooms = rooms;
+
   }
 
   getAvailableRoomsByDate(date, bookings) {
@@ -14,6 +15,10 @@ class Rooms {
 
   filterRoomsByType(availableRooms, roomType) {
     return availableRooms.filter(room => room.roomType === roomType)
+  }
+
+  getRoomById(id) {
+    return this.rooms.find(room => room.number == id);
   }
 }
 export default Rooms;
