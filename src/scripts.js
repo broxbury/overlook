@@ -1,13 +1,16 @@
 // import './css/base.scss';
 // import index from './index':
-// // fetchUserData();
+//
 // let userData;
 // let bookingsData;
 // let roomsData;
 //
+// let userData;
+// let bookingsData;
+// let roomsData;
 //
 // function fetchData() {
-//   // let fetchedUserData =
+//   let fetchedUserData =
 //     fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
 //       .then(response => response.json());
 //
@@ -25,7 +28,7 @@
 //       dataObj.users = response[0].users;
 //       dataObj.bookings = response[1].bookings;
 //       dataObj.rooms = response[2].rooms;
-//       console.log(dataObj);
+//       // console.log(dataObj);
 //       return dataObj;
 //     });
 // }
@@ -35,6 +38,12 @@
 //     bookingsData = data.bookings;
 //     roomsData = data.rooms;
 //   }).then(function() {
-//     logData(userData, bookingsData, roomsData)
+//     sortData(userData, bookingsData, roomsData)
 //   })
 //   .catch(error => console.log(error.message))
+//
+// function sortData(userData, bookingsData, roomsData) {
+//   console.log(userData, bookingsData, roomsData);
+//
+// }
+// //

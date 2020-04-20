@@ -12,11 +12,216 @@
 </head>
 
 <body>
-  <h1></h1>
+  <main class="log-in">
+    <!-- user log in portal -->
+    <section class="log-in-container">
+      <section class="manager-log-in">
+        <button id="toggle-manager-log-in">Manager Log-in</button>
+      </section>
+      <section class="log-in-inputs">
+        <section class="user-name">
+          <label for="user-name-input"></label>
+          <input class="user-name-input" placeholder="Customer Username" type="text" value="">
+        </section>
+        <section class="password">
+          <section class="password">
+            <label for="user-name-input"></label>
+            <input class="password-input" placeholder="Password" type="text" value="overlook2020">
+            <label for="log-in-submit"></label>
+            <section class="user-log-in-btn">
+              <button class="log-in-btn" placeholder="Log-in">Log-In</button>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+    <!-- manager log in portal -->
+    <section class="log-in-container-manager hidden">
+      <section class="user-log-in">
+        <button id="toggle-user-log-in">User Log-in</button>
+      </section>
+      <section class="log-in-inputs">
+        <section class="user-name">
+          <label for="user-name-input"></label>
+          <input class="user-name-input-manager" placeholder="Manager ID" type="text">
+        </section>
+        <section class="password">
+          <section class="password">
+            <label for="user-name-input"></label>
+            <input class="password-input-manager" placeholder="Password" type="text" value="overlook2020">
+            <section class="user-log-in-btn">
+              <button class="log-in-btn-manager" placeholder="Log-in">Log-In</button>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </main>
+  <main class="main-page hidden">
+    <!-- main page HTML -->
+    <section class="main-page-user">
+      <header class="nav-header">
+        <section class="booking-history-img">
+          <img class="history" src="./images/history.png" alt="history icon">
+          <h2 class="bookings-header">Previous Bookings</h2>
+        </section>
+        <section class="upcoming-reservations">
+          <img class="history" src="./images/booking.png" alt="history icon">
+          <h2 class="bookings-header">Upcoming Reservations</h2>
+        </section>
+      </header>
+      <section class="bookings-main">
+        <section class="calendar-container">
+        </section>
+        <section class="search-main">
+          <section class="log-in-inputs">
+            <h2 class="book-next">Your Perfect Room Awaits You!</h2>
+            <section class="date-picker">
+              <label for="date-picker"></label>
+              <input id="user-datepicker" placeholder="Enter Date yyyy/mm/dd" type="text">
+              <label for="log-in-submit"></label>
+              <section class="user-log-in-btn">
+                <button class="search-date" placeholder="Search">Search</button>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+      <!-- start user results page -->
+      <section class="user-results hidden">
+        <header class="subheader-results">
+          <h2 class="filter-header" id="show-all">All Available Rooms</h2>
+          <h2 class="filter-header" id="suite">Suites</h2>
+          <h2 class="filter-header" id="junior-suite">Junior Suites</h2>
+          <h2 class="filter-header" id="single-room">Single Rooms</h2>
+          <h2 class="filter-header" id="residential-suite">Residential Suites</h2>
+        </header>
+        <section class="search-results-cards" id="insert-results-here">
+        </section>
+      <section class="booking-card-container hidden">
+        <section class="booking-card">
+          <section class="booking-card-left">
+            <h2>Room Details:</h2>
+            <ul>
+              <li class="booking-info" id="room-type-li"></li>
+              <li class="booking-info" id="number-beds"></li>
+              <li class="booking-info" id="bed-size"></li>
+              <li class="booking-info" id="cost-per-night"></li>
+            </ul>
+          </section>
+          <section class="booking-card-right">
+            <label for="book-now"></label>
+            <h2 id="booking-date">Confirm Your Booking: </h2>
+            <button class="book-for-user" id="book-now-user">Book Now!</button>
+            <button class="book-for-user" id="hide-room-card">Back to Results</button>
+          </section>
+        </section>
+      </section>
+      </section>
+  </main>
+  <!-- start past reservations page -->
+  <main class="reservations-page hidden">
+    <header class="nav-header-from-reservations">
+      <section class="booking-history-img" id="user-reservations-bookings">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Previous Bookings</h2>
+      </section>
+      <section class="upcoming-reservations">
+        <img class="history" src="./images/booking.png" alt="history icon">
+        <h2 class="bookings-header">Upcoming Reservations</h2>
+      </section>
+    </header>
+    <section class="past-reservations-user">
+      <h2 class="past-reservations">Your Booking History:</h2>
+      <table class="past-bookings">
+        <thead>
+          <tr>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Room Cost</th>
+          </tr>
+        </thead>
+        <tbody class="insert-table-data">
+        </tbody>
+      </table>
+      <h2 class="total-cost"></h2>
+    </section>
+  </main>
+  <!-- managers page beings here -->
+  <main class="manager-page hidden">
+    <header class="nav-header-from-manager">
+      <section class="booking-history-manager" id="find-user">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Find User</h2>
+      </section>
+      <section class="upcoming-reservations" id="sign-out-manager">
+        <img class="history" src="./images/booking.png" alt="booking icon">
+        <h2 class="bookings-header">Sign Out</h2>
+      </section>
+    </header>
+    <section class="manager-portal">
+      <section class="manager-sub-header">
+        <h2 class="briefing">Your Daily Briefing:</h2>
+        <h2 class="percent-booked"></h2>
+        <h2 class="revenue-today"></h2>
+      </section>
+      <section class="manager-available-rooms">
+      </section>
+  </main>
+  <!-- manager page search -->
+  <main class="manager-search hidden">
+    <header class="nav-header-from-manager">
+      <section class="booking-history-img" id="todays-bookings">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Today's Bookings</h2>
+      </section>
+      <section class="upcoming-reservations" id="sign-out-manager">
+        <img class="history" src="./images/booking.png" alt="booking icon">
+        <h2 class="bookings-header">Sign Out</h2>
+      </section>
+    </header>
+    <section class="manager-search-container">
+      <section class="search-header">
+        <h2 class="search-heading">Search for User By Name:</h2>
+        <label for="search"></label>
+        <input type="text" class="search-input" id="search">
+      </section>
+      <section class="user-display">
+      </section>
+    </section>
+  </main>
+  <main class="manage-user hidden">
+    <header class="nav-header-from-manager">
+      <section class="booking-history-img" id="todays-bookings">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Today's Bookings</h2>
+      </section>
+      <section class="upcoming-reservations" id="sign-out-manager">
+        <img class="history" src="./images/booking.png" alt="booking icon">
+        <h2 class="bookings-header">Sign Out</h2>
+      </section>
+    </header>
+    <section class="display-manager-btns">
+      <table class="past-bookings">
+        <thead>
+          <tr>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Room Cost</th>
+          </tr>
+        </thead>
+        <tbody class="insert-table-data">
+        </tbody>
+      </table>
+      <section class="user-details-manager">
+        <h2 class="user-name"></h2>
+        <label for="cancel-booking">
+          <button class="book-for-user" id="book-user">Create New Booking</button>
+          <button class="cancel-user-booking" id="cancel-booking">Cancel User Booking</button>
+      </section>
+    </section>
+  </main>
 
-  <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-  <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
 </body>
 
 </html>

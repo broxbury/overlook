@@ -9,6 +9,7 @@ class User {
     bookings.filter(booking => booking.userID === this.id).forEach(booking => {
       this.bookings.push(booking);
     });
+    return this.bookings
   }
 
   calculateUserSpending(roomsData) {
@@ -19,6 +20,10 @@ class User {
     return Number.parseFloat((amountSpent).toFixed(2));
   }
 
+  calculateAmountByBooking(booking, rooms) {
+    return rooms.find(room => booking.roomNumber === room.number).costPerNight
+  }
+
   managerSearchByUser(users, roomsData) {
     let currentUser = users.find(user => user.name === this.name);
     return {
@@ -27,6 +32,7 @@ class User {
       amountSpent: this.calculateUserSpending(roomsData)
     }
   }
+
 
 }
 export default User;

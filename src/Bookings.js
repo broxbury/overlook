@@ -13,7 +13,10 @@ class Bookings {
   calculateBookingPercentage(date, roomsData) {
     let percentage = this.bookings.filter(booking => booking.date === date).length / roomsData.length;
     return Math.floor(percentage * 100);
-    //takes in date, returns percentage of rooms that are booked for that date(manager portal)
+  }
+
+  filterUpcomingBookings(date) {
+  return this.bookings.filter(booking => booking.date > date)
   }
 
 }

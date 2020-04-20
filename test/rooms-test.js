@@ -41,14 +41,14 @@ describe('Rooms', function() {
       {
         "id": "5fwrgu4i7k55hl72h",
         "userID": 1,
-        "date": "2020/02/05",
+        "date": "2020/01/20",
         "roomNumber": 15,
         "roomServiceCharges": []
       },
       {
         "id": "5fwrgu4i7k55hl72f",
         "userID": 4,
-        "date": "2020/01/22",
+        "date": "2020/01/20",
         "roomNumber": 2,
         "roomServiceCharges": []
       },
@@ -143,56 +143,67 @@ describe('Rooms', function() {
     expect(rooms.rooms).to.equal(roomsData);
   });
 
-  it('should return available rooms diven a date', function() {
-    expect(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData)).to.deep.equal([{
-        id: '5fwrgu4i7k55hl6t8',
-        userID: 1,
-        date: '2020/02/05',
-        roomNumber: 12,
-        roomServiceCharges: []
+  it.only('should return available rooms diven a date', function() {
+    expect(rooms.getAvailableRoomsByDate('2020/01/20', bookingsData)).to.deep.equal([{
+        "number": 12,
+        "roomType": "single room",
+        "bidet": false,
+        "bedSize": "twin",
+        "numBeds": 2,
+        "costPerNight": 172.09
       },
       {
-        id: '5fwrgu4i7k55hl6x8',
-        userID: 1,
-        date: '2020/01/11',
-        roomNumber: 20,
-        roomServiceCharges: []
+        "number": 20,
+        "roomType": "residential suite",
+        "bidet": false,
+        "bedSize": "queen",
+        "numBeds": 1,
+        "costPerNight": 343.95
       },
       {
-        id: '5fwrgu4i7k55hl727',
-        userID: 1,
-        date: '2020/01/20',
-        roomNumber: 22,
-        roomServiceCharges: []
+        "number": 18,
+        "roomType": "junior suite",
+        "bidet": false,
+        "bedSize": "king",
+        "numBeds": 2,
+        "costPerNight": 496.41
       },
       {
-        id: '5fwrgu4i7k55hl72h',
-        userID: 1,
-        date: '2020/02/05',
-        roomNumber: 15,
-        roomServiceCharges: []
-      },
-      {
-        id: '5fwrgu4i7k55hl6uf',
-        userID: 2,
-        date: '2020/02/05',
-        roomNumber: 18,
-        roomServiceCharges: []
-      },
-      {
-        id: '5fwrgu4i7k55hl6uy',
-        userID: 2,
-        date: '2020/01/24',
-        roomNumber: 19,
-        roomServiceCharges: []
+        "number": 19,
+        "roomType": "single room",
+        "bidet": false,
+        "bedSize": "queen",
+        "numBeds": 1,
+        "costPerNight": 374.67
       }
-    ]);
-  });
+    ])
+  })
   it.only('should filter rooms by room type', function() {
-    rooms.getAvailableRoomsByDate('2020/01/22', bookingsData);
-    rooms.filterRoomsByType('2020/01/22', bookingsData, 'single room');
-    // rooms.filterRoomsByRoomType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData),'single room');
-    // console.log(rooms.filterRoomsByType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData),'single room')
-    // );
+    expect(rooms.filterRoomsByType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData), 'single room')).to.deep.equal([
+      {
+          number: 12,
+          roomType: 'single room',
+          bidet: false,
+          bedSize: 'twin',
+          numBeds: 2,
+          costPerNight: 172.09
+        },
+        {
+          number: 22,
+          roomType: 'single room',
+          bidet: false,
+          bedSize: 'full',
+          numBeds: 2,
+          costPerNight: 350.31
+        },
+        {
+          number: 19,
+          roomType: 'single room',
+          bidet: false,
+          bedSize: 'queen',
+          numBeds: 1,
+          costPerNight: 374.67
+        }
+      ])
   });
 })

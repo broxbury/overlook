@@ -1,6 +1,708 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import '~js-datepicker/src/datepicker';
+$radius: 5px;
+$black-border: 1px solid black;
+
+h2 {
+  margin: 0;
+  color: #343F3E;
+}
+h3 {
+  margin: .5em;
+  color: #343F3E;
+}
 
 body {
-  background-color: $primary-background;
+  // background-color: $primary-background;
+}
+
+.log-in {
+  border: $black-border;
+  background-image: url("../images/hotel-room.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.log-in-btn {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: block;
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: white;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.log-in-btn-manager {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: white;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.search-date {
+
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  display: block;
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: white;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.log-in-container {
+  display: block;
+  margin-top: 20vh;
+  margin-left: 30%;
+  border-radius: $radius;
+  width: 40%;
+  height: 60vh;
+}
+
+.log-in-container-manager {
+  display: block;
+  margin-top: 20vh;
+  margin-left: 30%;
+  border-radius: $radius;
+  width: 40%;
+  height: 60vh;
+}
+
+.manager-log-in {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  width: 95%;
+  height: 8%;
+}
+
+.user-log-in {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  width: 95%;
+  height: 8%;
+}
+
+#toggle-manager-log-in {
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 0 #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, #ededed 5%, #b8b8b8 100%);
+  background-color: #ededed;
+  padding: 4px 20px;
+  color: #6e616e;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+#toggle-user-log-in {
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 0 #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, #ededed 5%, #b8b8b8 100%);
+  background-color: #ededed;
+  padding: 4px 20px;
+  color: #6e616e;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+.log-in-inputs {
+  display: grid;
+  justify-content: center;
+  padding-top: 13%;
+}
+
+#toggle-manager-log-in:hover {
+  background: linear-gradient(to bottom, #b8b8b8 5%, #ededed 100%);
+  background-color: #b8b8b8;
+}
+
+.user-name-input {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.user-name-input-manager {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+
+.password-input {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66)
+}
+
+.password-input-manager {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66)
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  // background-color: #66C3FF;
+  height: 7vh;
+}
+
+.nav-header-from-manager {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  // background-color: #66C3FF;
+  height: 7vh;
+}
+
+.bookings-main {
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.history {
+  padding-top: .4em;
+  width: 2rem;
+  height: 2rem;
+}
+
+
+.upcoming-reservations {
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: #94B0DA;
+  width: 50%;
+  height: 3rem;
+}
+
+.upcoming-reservations:hover {
+  opacity: 90%;
+  cursor: pointer;
+  background-color: #DCE1E9;
+}
+
+.booking-history-img {
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: #94B0DA;
+  width: 50%;
+  height: 3rem;
+}
+
+.booking-history-img:hover {
+  opacity: 90%;
+  cursor: pointer;
+  background-color: #DCE1E9;
+}
+
+.booking-history-manager{
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: #94B0DA;
+  width: 50%;
+  height: 3rem;
+}
+
+.booking-history-manager:hover {
+  opacity: 90%;
+  cursor: pointer;
+  background-color: #DCE1E9;
+}
+
+.bookings-header {
+  position: relative;
+  bottom: 2%;
+  padding-top: 1%;
+  padding-left: 5%;
+  width: fit-content;
+  height: 3rem;
+  color: #343F3E;
+  font-size: 2vw;
+}
+
+#user-datepicker {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+  height: 20%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+.room-card-single-room {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/single-room.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+.room-card-junior-suite {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/juinor-suite.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+.room-card-suite {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/suite.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+.room-card-residential-suite {
+  display: block;
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #DCEDFF;
+  background-image: url("../images/residential.jpg");
+  background-size: cover;
+  width: 95%;
+  height: 300px;
+}
+
+.room-card-residential-suite:hover {
+  opacity: 90%;
+}
+.room-card-suite:hover {
+  opacity: 90%;
+}
+.room-card-single-room:hover {
+  opacity: 90%;
+}
+.room-card-junior-suite:hover {
+  opacity: 90%;
+}
+
+.search-results-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.manager-available-rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.room-info {
+  border: 1px solid white;
+  background-color: #DCEDFF;
+  height: auto;
+}
+
+.subheader-results {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid white;
+  height: 10vh;
+}
+.breakfast-img {
+  padding-bottom: 1em;
+  width: 10%;
+}
+.room-service-img {
+  padding-bottom: 1em;
+  width: 10%;
+}
+.room-icons {
+  display: flex;
+  justify-content: space-around;
+}
+.reservations-page {
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-size: cover;
+}
+td, th {
+  border: 3px solid #999;
+  padding: 0.5rem;
+}
+.past-reservations-user {
+  display: grid;
+  background-attachment: fixed;
+}
+.past-bookings {
+  margin-top: 3em;
+}
+.past-reservations {
+margin-top: 2em;
+}
+.nav-header-from-reservations {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  // background-color: #66C3FF;
+  height: 7vh;
+}
+.manager-portal {
+  display: grid;
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.manager-sub-header{
+  display: flex;
+  justify-content: space-around;
+  margin: 4%;
+}
+.search-input {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: white;
+  padding: 1em;
+  width: 40%;
+  height: 1rem;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+.search-header{
+  display: flex;
+  justify-content: center;
+}
+.search-heading {
+  padding-top: 2.6rem;
+}
+.user-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+.manager-search-container {
+  display: grid;
+
+}
+.user-card {
+  cursor: pointer;
+  margin: 1em;
+  border: 1px solid white;
+  background-color: #DCEDFF;
+  height: auto;
+}
+.user-card:hover {
+  opacity: 80%;
+}
+
+.user-details-manager {
+  display: grid;
+  margin-top: 7%;
+  margin-left: 14%;
+  height: 100vh;
+}
+
+#cancel-booking {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 2em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background-color: #F98B88;
+  padding: 1em;
+  width: 80%;
+  height: 1rem;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+.book-for-user {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-border-radius: 3px;
+  -o-text-overflow: clip;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  box-sizing: content-box;
+  margin-top: 1em;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  border: 2px solid white;
+  border-radius: 3px;
+  background-color: white;
+  padding: .8em;
+  width: 80%;
+  height: 1rem;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+}
+.book-for-user:hover {
+  opacity: 80%;
+}
+
+.display-manager-btns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  background-attachment: fixed;
+  background-image: url("../images/hotel-room-clean.jpg");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.booking-history-manager {
+
+}
+.subheader-results {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem;
+  height: auto;
+}
+.filter-header {
+  cursor: pointer;
+  border: 2px solid #343F3E;
+  padding: 1rem;
+}
+.filter-header:hover {
+  background-color: #DCEDFF
+}
+
+.booking-card {
+  display: flex;
+  position: fixed;
+  top: 21%;
+  left: 26%;
+  border: 2px solid white;
+  border-radius: 3px;
+  background-color: grey;
+  width: 50%;
+  height: 20rem;
+}
+.booking-card-left {
+  display: grid;
+  border-right: 2px solid white;
+}
+.booking-card-right{
+  display: grid;
+  margin-left: 19%;
+}
+
+li {
+  padding: 1em;
 }
