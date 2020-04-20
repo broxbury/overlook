@@ -21,6 +21,7 @@ let rooms;
 let user;
 let selectedDate;
 let roomCardId;
+let managerSelectedDate;
 
 function fetchData() {
   let fetchedUserData =
@@ -298,8 +299,15 @@ $('#return-to-users-page').on('click', function(event) {
 
 $('#book-user').on('click', function(event) {
   if ($('#manager-datepicker').val()) {
-    let managerSelectedDate = $('#manager-datepicker').val();
+    managerSelectedDate = $('#manager-datepicker').val();
     domUpdates.managerBookingCard(rooms.getAvailableRoomsByDate(managerSelectedDate, bookingsData), user)
+  }
+});
+
+$('#manager-user-booking-table').on('click', function(event) {
+  let roomId = event.target.dataset.id
+  if (event.target.classList.contains('booking-btn')) {
+    index.postBooking(index.stageUserBooking(managerSelectedDate, user, roomId));
   }
 });
 

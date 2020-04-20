@@ -243,21 +243,6 @@ const domUpdates = {
     });
   },
 
-  toggleCancelationCard(upcomingBookings) {
-    $('#manager-user-future-bookings tr').remove();
-    $('.manager-card-container-cancel').toggleClass('hidden');
-    upcomingBookings.forEach(booking => {
-      $('#manager-user-future-bookings').append(
-        `<tr>
-          <td>${booking.roomNumber}</td>
-          <td>${booking.date}</td>
-          <td>${booking.id}</td>
-          <td class="cancel-booking-item"><img class="cancel-btn" data-id="${booking.id}" src="./images/cancel-btn.png"></td>
-      </tr>`
-      );
-    });
-  },
-
   closeCancelationCard() {
     $('.manager-card-container-cancel').toggleClass('hidden');
   },
@@ -272,10 +257,10 @@ const domUpdates = {
   },
 
   managerBookingCard(availableRooms, user) {
-    $('#manager-user-booking-table td').remove();
+    $('#manager-user-bookings-insert tr').remove();
     $('.manager-card-container-booking').toggleClass('hidden');
     availableRooms.forEach(room => {
-      $('#manager-user-booking-table').append(
+      $('#manager-user-bookings-insert').append(
         `
         <tr>
           <td>${room.number}</td>
