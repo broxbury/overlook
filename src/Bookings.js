@@ -15,10 +15,6 @@ class Bookings {
     return Math.floor(percentage * 100);
   }
 
-  filterUpcomingBookings(date) {
-  return this.bookings.filter(booking => booking.date > date)
-  }
-
 }
 
 export default Bookings;

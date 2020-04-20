@@ -34,6 +34,13 @@ class User {
     }
   }
 
+  filterUpcomingBookings(date) {
+  return this.bookings.filter(booking => booking.date > date)
+  }
+
+  filterPastBookings(date) {
+  return this.bookings.filter(booking => booking.date < date)
+  }
 
 }
 export default User;

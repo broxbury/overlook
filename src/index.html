@@ -65,7 +65,7 @@
           <img class="history" src="./images/history.png" alt="history icon">
           <h2 class="bookings-header">Previous Bookings</h2>
         </section>
-        <section class="upcoming-reservations">
+        <section class="upcoming-reservations" id="upcoming-reservations-main">
           <img class="history" src="./images/booking.png" alt="history icon">
           <h2 class="bookings-header">Upcoming Reservations</h2>
         </section>
@@ -98,35 +98,35 @@
         </header>
         <section class="search-results-cards" id="insert-results-here">
         </section>
-      <section class="booking-card-container hidden">
-        <section class="booking-card">
-          <section class="booking-card-left">
-            <h2>Room Details:</h2>
-            <ul>
-              <li class="booking-info" id="room-type-li"></li>
-              <li class="booking-info" id="number-beds"></li>
-              <li class="booking-info" id="bed-size"></li>
-              <li class="booking-info" id="cost-per-night"></li>
-            </ul>
-          </section>
-          <section class="booking-card-right">
-            <label for="book-now"></label>
-            <h2 id="booking-date">Confirm Your Booking: </h2>
-            <button class="book-for-user" id="book-now-user">Book Now!</button>
-            <button class="book-for-user" id="hide-room-card">Back to Results</button>
+        <section class="booking-card-container hidden">
+          <section class="booking-card">
+            <section class="booking-card-left">
+              <h2>Room Details:</h2>
+              <ul>
+                <li class="booking-info" id="room-type-li"></li>
+                <li class="booking-info" id="number-beds"></li>
+                <li class="booking-info" id="bed-size"></li>
+                <li class="booking-info" id="cost-per-night"></li>
+              </ul>
+            </section>
+            <section class="booking-card-right">
+              <label for="book-now"></label>
+              <h2 id="booking-date">Confirm Your Booking: </h2>
+              <button class="book-for-user" id="book-now-user">Book Now!</button>
+              <button class="book-for-user" id="hide-room-card">Back to Results</button>
+            </section>
           </section>
         </section>
       </section>
-      </section>
   </main>
   <!-- start past reservations page -->
-  <main class="reservations-page hidden">
+  <main class="past-reservations-page hidden">
     <header class="nav-header-from-reservations">
       <section class="booking-history-img" id="user-reservations-bookings">
         <img class="history" src="./images/history.png" alt="history icon">
         <h2 class="bookings-header">Main Page</h2>
       </section>
-      <section class="upcoming-reservations">
+      <section class="upcoming-reservations" id="upcoming-from-past">
         <img class="history" src="./images/booking.png" alt="history icon">
         <h2 class="bookings-header">Upcoming Reservations</h2>
       </section>
@@ -142,6 +142,34 @@
           </tr>
         </thead>
         <tbody class="insert-table-data" id="insert-table-results">
+        </tbody>
+      </table>
+      <h2 class="total-cost"></h2>
+    </section>
+  </main>
+  <!-- user future reservations page -->
+  <main class="future-reservations-page hidden">
+    <header class="nav-header-from-future">
+      <section class="booking-history-img" id="upcoming-to-past">
+        <img class="history" src="./images/history.png" alt="history icon">
+        <h2 class="bookings-header">Previous Bookings</h2>
+      </section>
+      <section class="upcoming-reservations" id="return-to-main">
+        <img class="history" src="./images/booking.png" alt="history icon">
+        <h2 class="bookings-header">Main Page</h2>
+      </section>
+    </header>
+    <section class="future-reservations-user">
+      <h2 class="past-reservations">Your Upcoming Reservations:</h2>
+      <table class="past-bookings" id="bookings-table-future">
+        <thead>
+          <tr>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Room Cost</th>
+          </tr>
+        </thead>
+        <tbody class="insert-table-data" id="insert-future-table-results">
         </tbody>
       </table>
       <h2 class="total-cost"></h2>
@@ -202,7 +230,7 @@
       </section>
     </header>
     <section class="display-manager-btns">
-      <table class="past-bookings">
+      <table class="past-bookings" id="manager-past-bookings">
         <thead>
           <tr>
             <th>Room Number</th>
@@ -215,9 +243,57 @@
       </table>
       <section class="user-details-manager">
         <h2 class="user-name"></h2>
+        <label for="date-picker"></label>
+        <input id="manager-datepicker" placeholder="Enter Date yyyy/mm/dd" type="text">
         <label for="cancel-booking">
           <button class="book-for-user" id="book-user">Create New Booking</button>
+          <button class="book-for-user" id="return-to-users-page">All Users</button>
           <button class="cancel-user-booking" id="cancel-booking">Cancel User Booking</button>
+      </section>
+    </section>
+    <section class="manager-card-container-cancel hidden">
+      <section class="booking-card">
+        <section class="booking-card-left-manager">
+          <section class="cancelation-card-header">
+            <h2 class="user-name-manager-card">Select Booking To Cancel</h2>
+            <button class="back-to-user" id="back-to-users">Back to User</button>
+          </section>
+          <table class="past-bookings" id="manager-user-future">
+            <thead>
+              <tr>
+                <th>Room Number</th>
+                <th>Date</th>
+                <th>Booking ID</th>
+                <th>Cancel Booking</th>
+              </tr>
+            </thead>
+            <tbody class="insert-table-data" id="manager-user-bookings">
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </section>
+    <section class="manager-card-container-booking hidden">
+      <section class="booking-card">
+        <section class="booking-card-left-manager">
+          <section class="cancelation-card-header">
+            <h2 class="user-name-manager-card">Select a Room to Book:</h2>
+            <button class="back-to-user" id="back-to-users-from-bookings">Back to User</button>
+          </section>
+          <table class="past-bookings" id="manager-user-booking-table">
+            <thead>
+              <tr>
+                <th>Room Number</th>
+                <th>Number Of Beds</th>
+                <th>Bed Size</th>
+                <th>Cost Per Night</th>
+                <th>Book Room</th>
+              </tr>
+            </thead>
+            <tbody class="insert-table-data" id="manager-user-future-bookings">
+            </tbody>
+          </table>
+        </section>
       </section>
     </section>
   </main>

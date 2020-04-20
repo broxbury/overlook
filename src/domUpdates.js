@@ -39,19 +39,24 @@ const domUpdates = {
         `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
         <section class="room-info">
           <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
+          <h3>Cost Per Night: $${room.costPerNight}</h3>
         <section class="room-icons">
-          <img class="breakfast-img" src="../images/breakfast.png">
-          <img class="breakfast-img" src="../images/hotel.png">
         </section>
         </section>
       </section>`);
     });
   },
 
-  showPastReservations(userBookings, amountSpent, roomsData, user) {
+  togglePastFromMain(userBookings, amountSpent, roomsData, user) {
+    $('.total-cost').empty();
+    $('#insert-table-results tr').remove();
     $('.bookings-main').toggleClass('hidden');
-    $('.reservations-page').toggleClass('hidden');
+    $('.past-reservations-page').toggleClass('hidden');
     $('.main-page-user').toggleClass('hidden');
+    this.showPastReservations(userBookings, amountSpent, roomsData, user);
+  },
+
+  showPastReservations(userBookings, amountSpent, roomsData, user) {
     userBookings.map(booking => {
       $('.insert-table-data').append(
         `<tr>
@@ -65,9 +70,11 @@ const domUpdates = {
   },
 
   showPastReservationsForManager(userBookings, amountSpent, roomsData, user) {
+    $('.user-name').empty();
+    $('#manager-past-bookings tr').empty();
     $('.user-name').append(`${user.name.toUpperCase()} Total Amount Spent: $${amountSpent}`)
     userBookings.map(booking => {
-      $('.past-bookings').append(
+      $('#manager-past-bookings').append(
         `<tr>
           <td>${booking.roomNumber}</td>
           <td>${booking.date}</td>
@@ -105,13 +112,15 @@ const domUpdates = {
   },
 
   showUser(userId) {
-   $(`.user-card[data-id="${userId}"]`).removeClass('hidden')
+    $(`.user-card[data-id="${userId}"]`).removeClass('hidden')
   },
+
   hideUser(userId) {
     $(`.user-card[data-id="${userId}"]`).addClass('hidden')
   },
 
   displayUserPage(user, amountSpent) {
+    $
     $('.manager-search').toggleClass('hidden');
     $('.manage-user').toggleClass('hidden');
   },
@@ -131,10 +140,8 @@ const domUpdates = {
       $(`${'#insert-results-here'}`).append(
         `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
         <section class="room-info">
-          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
+          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number} Cost Per Night: $${room.costPerNight}</h3>
         <section class="room-icons">
-          <img class="breakfast-img" src="../images/breakfast.png">
-          <img class="breakfast-img" src="../images/hotel.png">
         </section>
         </section>
       </section>`);
@@ -147,10 +154,8 @@ const domUpdates = {
       $('#insert-results-here').append(
         `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
         <section class="room-info">
-          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
+          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number} Cost Per Night: $${room.costPerNight}</h3>
         <section class="room-icons">
-          <img class="breakfast-img" src="../images/breakfast.png">
-          <img class="breakfast-img" src="../images/hotel.png">
         </section>
         </section>
       </section>`);
@@ -172,12 +177,115 @@ const domUpdates = {
     });
   },
 
-  toggleReservationsPage() {
-    $('#insert-table-results tr').remove();
-    $('.total-cost').empty();
+
+  displayUpcomingReservations(futureReservations, user, roomsData) {
     $('.bookings-main').toggleClass('hidden');
-    $('.reservations-page').toggleClass('hidden');
+    $('.future-reservations-page').toggleClass('hidden');
     $('.main-page-user').toggleClass('hidden');
+    futureReservations.map(booking => {
+      $('#insert-future-table-results').append(
+        `<tr>
+          <td>${booking.roomNumber}</td>
+          <td>${booking.date}</td>
+          <td>${user.calculateAmountByBooking(booking, roomsData)}</td>
+        </tr>`
+      )
+    });
+  },
+
+  toggleFutureReservationsPage() {
+    $('#insert-table-results tr').remove();
+    $('.bookings-main').toggleClass('hidden');
+    $('.future-reservations-page').toggleClass('hidden');
+    $('.main-page-user').toggleClass('hidden');
+  },
+
+  togglePastToUpcoming(futureReservations, user, roomsData) {
+    $('#insert-table-results tr').remove();
+    $('#insert-future-table-results tr').remove();
+    $('.past-reservations-page').toggleClass('hidden');
+    $('.future-reservations-page').toggleClass('hidden');
+    futureReservations.map(booking => {
+      $('#insert-future-table-results').append(
+        `<tr>
+          <td>${booking.roomNumber}</td>
+          <td>${booking.date}</td>
+          <td>${user.calculateAmountByBooking(booking, roomsData)}</td>
+        </tr>`
+      )
+    });
+  },
+
+  displayPastFromFuture(userBookings, amountSpent, roomsData, user) {
+    $('#insert-table-results tr').remove();
+    $('#insert-future-table-results tr').remove();
+    this.showPastReservations(userBookings, amountSpent, roomsData, user)
+  },
+
+  toggleMainFromPast() {
+    $('.bookings-main').toggleClass('hidden');
+    $('.past-reservations-page').toggleClass('hidden');
+    $('.main-page-user').toggleClass('hidden');
+  },
+
+  toggleCancelationCard(upcomingBookings) {
+    $('#manager-user-future-bookings tr').remove();
+    $('.manager-card-container-cancel').toggleClass('hidden');
+    upcomingBookings.forEach(booking => {
+      $('#manager-user-future-bookings').append(
+        `<tr>
+          <td>${booking.roomNumber}</td>
+          <td>${booking.date}</td>
+          <td>${booking.id}</td>
+          <td class="cancel-booking-item"><img class="cancel-btn" data-id="${booking.id}" src="./images/cancel-btn.png"></td>
+      </tr>`
+      );
+    });
+  },
+
+  toggleCancelationCard(upcomingBookings) {
+    $('#manager-user-future-bookings tr').remove();
+    $('.manager-card-container-cancel').toggleClass('hidden');
+    upcomingBookings.forEach(booking => {
+      $('#manager-user-future-bookings').append(
+        `<tr>
+          <td>${booking.roomNumber}</td>
+          <td>${booking.date}</td>
+          <td>${booking.id}</td>
+          <td class="cancel-booking-item"><img class="cancel-btn" data-id="${booking.id}" src="./images/cancel-btn.png"></td>
+      </tr>`
+      );
+    });
+  },
+
+  closeCancelationCard() {
+    $('.manager-card-container-cancel').toggleClass('hidden');
+  },
+
+  closeCancelationCardFromBooking() {
+    $('.manager-card-container-booking').toggleClass('hidden');
+  },
+
+  returnToUsers() {
+    $('.manager-search').toggleClass('hidden');
+    $('.manage-user').toggleClass('hidden');
+  },
+
+  managerBookingCard(availableRooms, user) {
+    $('#manager-user-booking-table td').remove();
+    $('.manager-card-container-booking').toggleClass('hidden');
+    availableRooms.forEach(room => {
+      $('#manager-user-booking-table').append(
+        `
+        <tr>
+          <td>${room.number}</td>
+          <td>${room.numBeds}</td>
+          <td>${room.bedSize}</td>
+          <td>$${room.costPerNight}</td>
+          <td class="cancel-booking-item"><img class="booking-btn" data-id="${room.number}" src="./images/booking.png"></td>
+      </tr>`
+      );
+    });
   }
 
 

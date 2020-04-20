@@ -204,8 +204,9 @@ describe('User', function() {
     });
   });
 
-  it.only('should return amount spent per booking', function() {
+  it('should return amount spent per booking', function() {
     expect(user1.calculateAmountByBooking(bookingsData[0], roomsData)).to.equal(172.09);
-  })
+  });
+  it('should return an array of a users upcoming bookings()')
 
 })
