@@ -61,7 +61,7 @@
     <!-- main page HTML -->
     <section class="main-page-user">
       <header class="nav-header">
-        <section class="booking-history-img">
+        <section class="booking-history-img" id="user-main-page-history">
           <img class="history" src="./images/history.png" alt="history icon">
           <h2 class="bookings-header">Previous Bookings</h2>
         </section>
@@ -124,7 +124,7 @@
     <header class="nav-header-from-reservations">
       <section class="booking-history-img" id="user-reservations-bookings">
         <img class="history" src="./images/history.png" alt="history icon">
-        <h2 class="bookings-header">Previous Bookings</h2>
+        <h2 class="bookings-header">Main Page</h2>
       </section>
       <section class="upcoming-reservations">
         <img class="history" src="./images/booking.png" alt="history icon">
@@ -133,7 +133,7 @@
     </header>
     <section class="past-reservations-user">
       <h2 class="past-reservations">Your Booking History:</h2>
-      <table class="past-bookings">
+      <table class="past-bookings" id="bookings-table">
         <thead>
           <tr>
             <th>Room Number</th>
@@ -141,7 +141,7 @@
             <th>Room Cost</th>
           </tr>
         </thead>
-        <tbody class="insert-table-data">
+        <tbody class="insert-table-data" id="insert-table-results">
         </tbody>
       </table>
       <h2 class="total-cost"></h2>

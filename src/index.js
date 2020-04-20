@@ -137,8 +137,9 @@ $('.log-in-btn').on('click', function(event) {
   domUpdates.verifyUserSignIn($('.user-name-input').val(), $('.password-input').val());
 });
 
-$('.booking-history-img').on('click', function(event) {
+$('#user-main-page-history').on('click', function(event) {
   domUpdates.showPastReservations(user.populateUserBookings(bookingsData), user.calculateUserSpending(roomsData), roomsData, user)
+
 });
 
 $('.log-in-btn-manager').on('click', function(event) {
@@ -217,9 +218,13 @@ $('#hide-room-card').on('click', function(event) {
 
 $('#book-now-user').on('click', function(event) {
   index.postBooking(index.stageUserBooking(selectedDate, user, roomCardId));
-
 });
 
+$('#user-reservations-bookings').on('click', function(event) {
+  domUpdates.toggleReservationsPage();
+})
+
+// $('#user-reservations-')
 
 
 

@@ -7,6 +7,7 @@ class User {
 
   populateUserBookings(bookings) {
     bookings.filter(booking => booking.userID === this.id).forEach(booking => {
+      if(!this.bookings.includes(booking))
       this.bookings.push(booking);
     });
     return this.bookings

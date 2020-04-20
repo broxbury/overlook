@@ -52,10 +52,9 @@ const domUpdates = {
     $('.bookings-main').toggleClass('hidden');
     $('.reservations-page').toggleClass('hidden');
     $('.main-page-user').toggleClass('hidden');
-    $('.insert-table-data').empty()
     userBookings.map(booking => {
       $('.insert-table-data').append(
-        `<tr class ="table-results">
+        `<tr>
           <td>${booking.roomNumber}</td>
           <td>${booking.date}</td>
           <td>${user.calculateAmountByBooking(booking, roomsData)}</td>
@@ -172,7 +171,14 @@ const domUpdates = {
       $(this).empty()
     });
   },
-  // confirmBooking(resut)
+
+  toggleReservationsPage() {
+    $('#insert-table-results tr').remove();
+    $('.total-cost').empty();
+    $('.bookings-main').toggleClass('hidden');
+    $('.reservations-page').toggleClass('hidden');
+    $('.main-page-user').toggleClass('hidden');
+  }
 
 
 }
