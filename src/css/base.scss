@@ -304,6 +304,7 @@ body {
   background-image: url("../images/hotel-room-clean.jpg");
   background-size: cover;
   height: 100vh;
+  overflow: scroll;
 }
 
 .hidden {
@@ -502,6 +503,8 @@ body {
   background-position-x: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .manager-available-rooms {
@@ -520,13 +523,6 @@ body {
   border: 1px solid white;
   background-color: #DCEDFF;
   height: auto;
-}
-
-.subheader-results {
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid white;
-  height: 10vh;
 }
 
 .breakfast-img {
@@ -815,7 +811,7 @@ th {
 .subheader-results {
   display: flex;
   justify-content: space-evenly;
-  margin: 1rem;
+  margin: 2rem;
   height: auto;
 }
 
@@ -898,4 +894,7 @@ li {
 .cancelation-card-header {
   display: flex;
   justify-content: space-around;
+}
+.active-button {
+  background-color: #DCEDFF;
 }

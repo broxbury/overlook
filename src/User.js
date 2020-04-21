@@ -7,8 +7,8 @@ class User {
 
   populateUserBookings(bookings) {
     bookings.filter(booking => booking.userID === this.id).forEach(booking => {
-      if(!this.bookings.includes(booking))
-      this.bookings.push(booking);
+      if (!this.bookings.includes(booking))
+        this.bookings.push(booking);
     });
     return this.bookings
   }
@@ -35,11 +35,11 @@ class User {
   }
 
   filterUpcomingBookings(date) {
-  return this.bookings.filter(booking => booking.date > date)
+    return this.bookings.filter(booking => booking.date > date)
   }
 
   filterPastBookings(date) {
-  return this.bookings.filter(booking => booking.date < date)
+    return this.bookings.filter(booking => booking.date < date)
   }
 
 }

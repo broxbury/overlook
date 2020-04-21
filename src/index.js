@@ -22,6 +22,7 @@ let user;
 let selectedDate;
 let roomCardId;
 let managerSelectedDate;
+let dateToday;
 
 function fetchData() {
   let fetchedUserData =
@@ -102,6 +103,7 @@ const index = {
       })
       .then(response => response.json())
       .then(result => console.log(result))
+      .then(alert("Your Booking Was successful!"))
       .catch(err => console.log(err))
 
   },
@@ -163,15 +165,17 @@ $('.search-date').on('click', function(event) {
 });
 
 $('.log-in-btn').on('click', function(event) {
+  dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
   domUpdates.verifyUserSignIn($('.user-name-input').val(), $('.password-input').val());
 });
 
 $('#user-main-page-history').on('click', function(event) {
-  domUpdates.togglePastFromMain(user.populateUserBookings(bookingsData), user.calculateUserSpending(roomsData), roomsData, user);
+  user.populateUserBookings(bookingsData);
+  domUpdates.togglePastFromMain(user.filterPastBookings(dateToday), user.calculateUserSpending(roomsData), roomsData, user);
 });
 
 $('.log-in-btn-manager').on('click', function(event) {
-  let dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
+  dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
   let pageToDisplay = '.manager-available-rooms';
   domUpdates.verifyManager($('.user-name-input-manager').val(), $('.password-input-manager').val());
   index.addAvailableRoomsInfo(dateToday, pageToDisplay);
@@ -207,6 +211,7 @@ $('#suite').on('click', function(event) {
   let availableRooms = rooms.getAvailableRoomsByDate(selectedDate, bookingsData)
   let roomsToDisplay = rooms.filterRoomsByType(availableRooms, type);
   domUpdates.displayRooms(type, roomsToDisplay, roomsData)
+  domUpdates.toggleActiveBtnState(event.target.id);
 });
 
 $('#junior-suite').on('click', function(event) {
@@ -214,6 +219,8 @@ $('#junior-suite').on('click', function(event) {
   let availableRooms = rooms.getAvailableRoomsByDate(selectedDate, bookingsData)
   let roomsToDisplay = rooms.filterRoomsByType(availableRooms, type);
   domUpdates.displayRooms(type, roomsToDisplay, roomsData)
+  domUpdates.toggleActiveBtnState(event.target.id);
+
 });
 
 $('#single-room').on('click', function(event) {
@@ -221,6 +228,8 @@ $('#single-room').on('click', function(event) {
   let availableRooms = rooms.getAvailableRoomsByDate(selectedDate, bookingsData)
   let roomsToDisplay = rooms.filterRoomsByType(availableRooms, type);
   domUpdates.displayRooms(type, roomsToDisplay, roomsData)
+  domUpdates.toggleActiveBtnState(event.target.id);
+
 });
 
 $('#residential-suite').on('click', function(event) {
@@ -228,10 +237,13 @@ $('#residential-suite').on('click', function(event) {
   let availableRooms = rooms.getAvailableRoomsByDate(selectedDate, bookingsData)
   let roomsToDisplay = rooms.filterRoomsByType(availableRooms, type);
   domUpdates.displayRooms(type, roomsToDisplay, roomsData)
+  domUpdates.toggleActiveBtnState(event.target.id);
+
 });
 
 $('#show-all').on('click', function(event) {
-  domUpdates.displayAllAvailableRooms(rooms.getAvailableRoomsByDate(selectedDate, bookingsData), );
+  domUpdates.displayAllAvailableRooms(rooms.getAvailableRoomsByDate(selectedDate, bookingsData));
+  domUpdates.toggleActiveBtnState(event.target.id);
 });
 
 $('.search-results-cards').on('click', function(event) {
@@ -249,13 +261,13 @@ $('#book-now-user').on('click', function(event) {
 });
 
 $('#upcoming-reservations-main').on('click', function(event) {
-  let dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
+  dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
   user.populateUserBookings(bookingsData);
   domUpdates.displayUpcomingReservations(user.filterUpcomingBookings(dateToday), user, roomsData)
 });
 
 $('#upcoming-from-past').on('click', function(event) {
-  let dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
+  dateToday = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
   domUpdates.togglePastToUpcoming(user.filterUpcomingBookings(dateToday), user, roomsData)
 });
 
@@ -264,7 +276,8 @@ $('#return-to-main').on('click', function(event) {
 });
 
 $('#upcoming-to-past').on('click', function(event) {
-  domUpdates.displayPastFromFuture(user.populateUserBookings(bookingsData), user.calculateUserSpending(roomsData), roomsData, user)
+  user.populateUserBookings(bookingsData)
+  domUpdates.displayPastFromFuture(user.filterPastBookings(dateToday), user.calculateUserSpending(roomsData), roomsData, user)
 });
 
 $('#user-reservations-bookings').on('click', function(event) {
@@ -308,9 +321,21 @@ $('#manager-user-booking-table').on('click', function(event) {
   let roomId = event.target.dataset.id
   if (event.target.classList.contains('booking-btn')) {
     index.postBooking(index.stageUserBooking(managerSelectedDate, user, roomId));
+    domUpdates.closeCancelationCardFromBooking();
   }
 });
 
+$('#todays-bookings-from-user-portal').on('click', function(event) {
+  domUpdates.returnToManagerMain();
+});
+
+$('#return-to-manager-home').on('click', function(event) {
+  domUpdates.returnToManagerMainFromUserDetails();
+});
+
+$('#return-to-date-select').on('click', function(event) {
+  domUpdates.returnToDateSelect();
+})
 
 
 

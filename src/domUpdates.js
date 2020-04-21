@@ -4,39 +4,44 @@ import User from './User';
 
 
 const domUpdates = {
-  verifyUserSignIn(userName, password) {
-    if (userName === '') {
-      alert('Please enter a Username')
-    }
-    if (password !== 'overlook2020') {
-      alert('Please enter a valid Password')
-    }
-    if (!userName !== '' && !password !== '') {
-      index.createUser(userName)
-      $('.log-in').toggleClass('hidden');
-      $('.main-page').toggleClass('hidden')
-    }
-  },
+    verifyUserSignIn(userName, password) {
+      if (userName === '') {
+        alert('Please enter a Username')
+      }
+      if (password !== 'overlook2020') {
+        alert('Please enter a valid Password')
+      }
+      if (!userName !== '' && !password !== '') {
+        index.createUser(userName)
+        $('.log-in').toggleClass('hidden');
+        $('.main-page').toggleClass('hidden')
+      }
+    },
 
-  verifyManager(userName, password) {
-    if (userName !== 'manager') {
-      alert('Please enter a valid Username')
-    }
-    if (password !== 'overlook2020') {
-      alert('Please enter a valid Password')
-    }
-    if (userName === 'manager' && password === 'overlook2020') {
-      $('.log-in').toggleClass('hidden');
-      $('.manager-page').toggleClass('hidden');
-    }
-  },
+    verifyManager(userName, password) {
+      if (userName !== 'manager') {
+        alert('Please enter a valid Username')
+      }
+      if (password !== 'overlook2020') {
+        alert('Please enter a valid Password')
+      }
+      if (userName === 'manager' && password === 'overlook2020') {
+        $('.log-in').toggleClass('hidden');
+        $('.manager-page').toggleClass('hidden');
+      }
+    },
 
-  makeResultsCardsHTML(roomsToDisplay, pageToDisplay) {
-    $('.bookings-main').toggleClass('hidden');
-    $('.user-results').toggleClass('hidden');
-    roomsToDisplay.map(room => {
-      $(`${pageToDisplay}`).append(
-        `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
+    makeResultsCardsHTML(roomsToDisplay, pageToDisplay) {
+      $('.filter-header').each(function() {
+        $(this).removeClass('active-button')
+      });
+      $(`${pageToDisplay}`).empty();
+      if (roomsToDisplay.length > 0) {
+      $('.bookings-main').toggleClass('hidden');
+      $('.user-results').toggleClass('hidden');
+      roomsToDisplay.map(room => {
+        $(`${pageToDisplay}`).append(
+          `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
         <section class="room-info">
           <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
           <h3>Cost Per Night: $${room.costPerNight}</h3>
@@ -44,7 +49,15 @@ const domUpdates = {
         </section>
         </section>
       </section>`);
-    });
+      });
+    } else {
+      $(`${pageToDisplay}`).empty();
+      $('.bookings-main').toggleClass('hidden');
+      $('.user-results').toggleClass('hidden');
+      $(`${pageToDisplay}`).append(
+        `<h2>We're Sorry, there are no available room's for the date you've selected.</h2>`
+      )
+    }
   },
 
   togglePastFromMain(userBookings, amountSpent, roomsData, user) {
@@ -71,10 +84,10 @@ const domUpdates = {
 
   showPastReservationsForManager(userBookings, amountSpent, roomsData, user) {
     $('.user-name').empty();
-    $('#manager-past-bookings tr').empty();
+    $('#insert-manager-past-bookings').empty();
     $('.user-name').append(`${user.name.toUpperCase()} Total Amount Spent: $${amountSpent}`)
     userBookings.map(booking => {
-      $('#manager-past-bookings').append(
+      $('#insert-manager-past-bookings').append(
         `<tr>
           <td>${booking.roomNumber}</td>
           <td>${booking.date}</td>
@@ -90,6 +103,7 @@ const domUpdates = {
   },
 
   displayUsers(userData) {
+    $('.user-display').empty();
     $('.manager-page').toggleClass('hidden');
     $('.manager-search').toggleClass('hidden');
     userData.map(user => {
@@ -120,12 +134,17 @@ const domUpdates = {
   },
 
   displayUserPage(user, amountSpent) {
-    $
+    $('.filter-header').each(function() {
+      $(this).removeClass('active-button')
+    });
     $('.manager-search').toggleClass('hidden');
     $('.manage-user').toggleClass('hidden');
   },
 
   displayRooms(type, roomsToDisplay, roomsData) {
+    $('.filter-header').each(function() {
+      $(this).removeClass('active-button')
+    });
     $('.roomcard').each(function() {
       $(this).append('')
     });
@@ -149,6 +168,9 @@ const domUpdates = {
   },
 
   displayAllAvailableRooms(rooms) {
+    $('.filter-header').each(function() {
+      $(this).removeClass('active-button')
+    });
     $('#insert-results-here').empty()
     rooms.map(room => {
       $('#insert-results-here').append(
@@ -201,6 +223,7 @@ const domUpdates = {
   },
 
   togglePastToUpcoming(futureReservations, user, roomsData) {
+    $('.total-cost').empty();
     $('#insert-table-results tr').remove();
     $('#insert-future-table-results tr').remove();
     $('.past-reservations-page').toggleClass('hidden');
@@ -271,8 +294,29 @@ const domUpdates = {
       </tr>`
       );
     });
-  }
+  },
 
+  returnToManagerMain() {
+    $('.manager-search').toggleClass('hidden');
+    $('.manager-page').toggleClass('hidden');
+  },
+
+  returnToManagerMainFromUserDetails() {
+    $('.manage-user').toggleClass('hidden');
+    $('.manager-page').toggleClass('hidden');
+  },
+
+  returnToDateSelect() {
+    $('.bookings-main').toggleClass('hidden');
+    $('.user-results').toggleClass('hidden');
+  },
+
+  toggleActiveBtnState(btnId) {
+    $('.filter-header').each(function() {
+      $(this).removeClass('active-button')
+    });
+    $(`#${btnId}`).toggleClass('active-button')
+  }
 
 }
 export default domUpdates;

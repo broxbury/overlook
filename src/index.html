@@ -16,20 +16,21 @@
     <!-- user log in portal -->
     <section class="log-in-container">
       <section class="manager-log-in">
+        <label class="hidden" for="toggle-manager-log-in">Manager log in page</label>
         <button id="toggle-manager-log-in">Manager Log-in</button>
       </section>
       <section class="log-in-inputs">
         <section class="user-name">
-          <label for="user-name-input"></label>
-          <input class="user-name-input" placeholder="Customer Username" type="text" value="">
+          <label class="hidden" for="main-user-name">User Name Input</label>
+          <input class="user-name-input" id="main-user-name" placeholder="Customer Username" type="text" value="">
         </section>
         <section class="password">
           <section class="password">
-            <label for="user-name-input"></label>
-            <input class="password-input" placeholder="Password" type="text" value="overlook2020">
-            <label for="log-in-submit"></label>
+            <label class="hidden" for="main-password">Password Input</label>
+            <input class="password-input" id="main-password" placeholder="Password" type="text" value="overlook2020">
             <section class="user-log-in-btn">
-              <button class="log-in-btn" placeholder="Log-in">Log-In</button>
+              <label class="hidden" for="log-in">Log In Button</label>
+              <button class="log-in-btn" id="log-in" placeholder="Log-in">Log-In</button>
             </section>
           </section>
         </section>
@@ -42,15 +43,16 @@
       </section>
       <section class="log-in-inputs">
         <section class="user-name">
-          <label for="user-name-input"></label>
-          <input class="user-name-input-manager" placeholder="Manager ID" type="text">
+          <label class="hidden" for="manager-username">Manager Username Input</label>
+          <input class="user-name-input-manager" id="manager-username" placeholder="Manager ID" type="text">
         </section>
         <section class="password">
           <section class="password">
-            <label for="user-name-input"></label>
-            <input class="password-input-manager" placeholder="Password" type="text" value="overlook2020">
+            <label class="hidden" for="manager-password">Manager Password</label>
+            <input class="password-input-manager" id="manager-password" placeholder="Password" type="text" value="overlook2020">
             <section class="user-log-in-btn">
-              <button class="log-in-btn-manager" placeholder="Log-in">Log-In</button>
+              <label class="hidden" for="manager-log-in-button">Manager log in button</label>
+              <button class="log-in-btn-manager" id="manager-log-in-button" placeholder="Log-in">Log-In</button>
             </section>
           </section>
         </section>
@@ -77,11 +79,11 @@
           <section class="log-in-inputs">
             <h2 class="book-next">Your Perfect Room Awaits You!</h2>
             <section class="date-picker">
-              <label for="date-picker"></label>
+              <label class="hidden" for="user-datepicker">Enter a Date</label>
               <input id="user-datepicker" placeholder="Enter Date yyyy/mm/dd" type="text">
-              <label for="log-in-submit"></label>
               <section class="user-log-in-btn">
-                <button class="search-date" placeholder="Search">Search</button>
+                <label class="hidden"for="search-for-room">Search for room button</label>
+                <button class="search-date" id="search-for-room" placeholder="Search">Search</button>
               </section>
             </section>
           </section>
@@ -90,7 +92,8 @@
       <!-- start user results page -->
       <section class="user-results hidden">
         <header class="subheader-results">
-          <h2 class="filter-header" id="show-all">All Available Rooms</h2>
+          <h2 class="filter-header" id="return-to-date-select">New Search</h2>
+          <h2 class="filter-header active-button" id="show-all">All Available Rooms</h2>
           <h2 class="filter-header" id="suite">Suites</h2>
           <h2 class="filter-header" id="junior-suite">Junior Suites</h2>
           <h2 class="filter-header" id="single-room">Single Rooms</h2>
@@ -110,9 +113,10 @@
               </ul>
             </section>
             <section class="booking-card-right">
-              <label for="book-now"></label>
               <h2 id="booking-date">Confirm Your Booking: </h2>
+              <label class="hidden" for="book-now-user">Book Now Button</label>
               <button class="book-for-user" id="book-now-user">Book Now!</button>
+              <label class="hidden" for="hide-room-card">Back to Room Results</label>
               <button class="book-for-user" id="hide-room-card">Back to Results</button>
             </section>
           </section>
@@ -180,9 +184,9 @@
     <header class="nav-header-from-manager">
       <section class="booking-history-manager" id="find-user">
         <img class="history" src="./images/history.png" alt="history icon">
-        <h2 class="bookings-header">Find User</h2>
+        <h2 class="bookings-header">User Portal</h2>
       </section>
-      <section class="upcoming-reservations" id="sign-out-manager">
+      <section class="upcoming-reservations" id="sign-out-manager1">
         <img class="history" src="./images/booking.png" alt="booking icon">
         <h2 class="bookings-header">Sign Out</h2>
       </section>
@@ -199,11 +203,11 @@
   <!-- manager page search -->
   <main class="manager-search hidden">
     <header class="nav-header-from-manager">
-      <section class="booking-history-img" id="todays-bookings">
+      <section class="booking-history-img" id="todays-bookings-from-user-portal">
         <img class="history" src="./images/history.png" alt="history icon">
-        <h2 class="bookings-header">Today's Bookings</h2>
+        <h2 class="bookings-header">Manager Home</h2>
       </section>
-      <section class="upcoming-reservations" id="sign-out-manager">
+      <section class="upcoming-reservations" id="sign-out-manager2">
         <img class="history" src="./images/booking.png" alt="booking icon">
         <h2 class="bookings-header">Sign Out</h2>
       </section>
@@ -211,7 +215,7 @@
     <section class="manager-search-container">
       <section class="search-header">
         <h2 class="search-heading">Search for User By Name:</h2>
-        <label for="search"></label>
+        <label for="search">Search For User By Name</label>
         <input type="text" class="search-input" id="search">
       </section>
       <section class="user-display">
@@ -220,17 +224,17 @@
   </main>
   <main class="manage-user hidden">
     <header class="nav-header-from-manager">
-      <section class="booking-history-img" id="todays-bookings">
+      <section class="booking-history-img" id="return-to-manager-home">
         <img class="history" src="./images/history.png" alt="history icon">
-        <h2 class="bookings-header">Today's Bookings</h2>
+        <h2 class="bookings-header">Manager Home</h2>
       </section>
-      <section class="upcoming-reservations" id="sign-out-manager">
+      <section class="upcoming-reservations" id="sign-out-manager3">
         <img class="history" src="./images/booking.png" alt="booking icon">
         <h2 class="bookings-header">Sign Out</h2>
       </section>
     </header>
-    <section class="display-manager-btns">
-      <table class="past-bookings" id="manager-past-bookings">
+    <section class="display-manager-btns" id="manager-past-bookings">
+      <table class="past-bookings">
         <thead>
           <tr>
             <th>Room Number</th>
@@ -238,16 +242,18 @@
             <th>Room Cost</th>
           </tr>
         </thead>
-        <tbody class="insert-table-data">
+        <tbody class="insert-table-data" id="insert-manager-past-bookings">
         </tbody>
       </table>
       <section class="user-details-manager">
         <h2 class="user-name"></h2>
-        <label for="date-picker"></label>
+        <label class="hidden" for="manager-datepicker">Pick a Date</label>
         <input id="manager-datepicker" placeholder="Enter Date yyyy/mm/dd" type="text">
-        <label for="cancel-booking">
+          <label class="hidden"for="book-user">Create a New Booking</label>
           <button class="book-for-user" id="book-user">Create New Booking</button>
+          <label class="hidden"for="return-to-users-page">Return to Users Page</label>
           <button class="book-for-user" id="return-to-users-page">All Users</button>
+          <label class="hidden"for="cancel-user-booking">Cancel User Booking</label>
           <button class="cancel-user-booking" id="cancel-booking">Cancel User Booking</button>
       </section>
     </section>
