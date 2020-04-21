@@ -70,6 +70,8 @@ const domUpdates = {
   },
 
   showPastReservations(userBookings, amountSpent, roomsData, user) {
+    $('.total-cost').empty();
+    $('.insert-table-data tr').remove();
     userBookings.map(booking => {
       $('.insert-table-data').append(
         `<tr>
@@ -84,7 +86,7 @@ const domUpdates = {
 
   showPastReservationsForManager(userBookings, amountSpent, roomsData, user) {
     $('.user-name').empty();
-    $('#insert-manager-past-bookings').empty();
+    $('#insert-manager-past-bookings tr').remove()
     $('.user-name').append(`${user.name.toUpperCase()} Total Amount Spent: $${amountSpent}`)
     userBookings.map(booking => {
       $('#insert-manager-past-bookings').append(
@@ -313,9 +315,14 @@ const domUpdates = {
 
   toggleActiveBtnState(btnId) {
     $('.filter-header').each(function() {
-      $(this).removeClass('active-button')
+      $(this).removeClass('active-button');
     });
-    $(`#${btnId}`).toggleClass('active-button')
+    $(`#${btnId}`).toggleClass('active-button');
+  },
+
+  toggleFutureFromPast() {
+    $('.past-reservations-page').toggleClass('hidden');
+    $('.future-reservations-page').toggleClass('hidden');
   }
 
 }

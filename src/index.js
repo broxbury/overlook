@@ -277,7 +277,9 @@ $('#return-to-main').on('click', function(event) {
 
 $('#upcoming-to-past').on('click', function(event) {
   user.populateUserBookings(bookingsData)
-  domUpdates.displayPastFromFuture(user.filterPastBookings(dateToday), user.calculateUserSpending(roomsData), roomsData, user)
+  domUpdates.displayPastFromFuture(user.filterPastBookings(dateToday), user.calculateUserSpending(roomsData), roomsData, user);
+  domUpdates.toggleFutureFromPast();
+
 });
 
 $('#user-reservations-bookings').on('click', function(event) {
