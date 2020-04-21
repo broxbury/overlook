@@ -143,7 +143,7 @@ describe('Rooms', function() {
     expect(rooms.rooms).to.equal(roomsData);
   });
 
-  it.only('should return available rooms diven a date', function() {
+  it('should return available rooms diven a date', function() {
     expect(rooms.getAvailableRoomsByDate('2020/01/20', bookingsData)).to.deep.equal([{
         "number": 12,
         "roomType": "single room",
@@ -178,7 +178,7 @@ describe('Rooms', function() {
       }
     ])
   })
-  it.only('should filter rooms by room type', function() {
+  it('should filter rooms by room type', function() {
     expect(rooms.filterRoomsByType(rooms.getAvailableRoomsByDate('2020/01/22', bookingsData), 'single room')).to.deep.equal([
       {
           number: 12,

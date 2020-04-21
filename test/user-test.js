@@ -61,7 +61,7 @@ describe('User', function() {
       {
         "id": "5fwrgu4i7k55hl6uy",
         "userID": 2,
-        "date": "2020/01/24",
+        "date": "2021/01/24",
         "roomNumber": 19,
         "roomServiceCharges": []
       }
@@ -207,6 +207,38 @@ describe('User', function() {
   it('should return amount spent per booking', function() {
     expect(user1.calculateAmountByBooking(bookingsData[0], roomsData)).to.equal(172.09);
   });
-  it('should return an array of a users upcoming bookings()')
+
+  it('should return an array of a users upcoming bookings', function() {
+    user2.populateUserBookings(bookingsData);
+    expect(user2.filterUpcomingBookings('2020/01/24')).to.deep.equal([
+      {
+        "id": "5fwrgu4i7k55hl6uy",
+        "userID": 2,
+        "date": "2021/01/24",
+        "roomNumber": 19,
+        "roomServiceCharges": []
+      }
+    ]);
+  });
+
+  it.only('should return an array of a users previous bookings', function() {
+    user2.populateUserBookings(bookingsData);
+    expect(user2.filterPastBookings('2022/01/24')).to.deep.equal([
+      {
+        "id": "5fwrgu4i7k55hl6uf",
+        "userID": 2,
+        "date": "2020/01/09",
+        "roomNumber": 18,
+        "roomServiceCharges": []
+      },
+      {
+        "id": "5fwrgu4i7k55hl6uy",
+        "userID": 2,
+        "date": "2021/01/24",
+        "roomNumber": 19,
+        "roomServiceCharges": []
+      }
+    ]);
+  });
 
 })

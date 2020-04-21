@@ -206,6 +206,7 @@ const domUpdates = {
     $('.bookings-main').toggleClass('hidden');
     $('.future-reservations-page').toggleClass('hidden');
     $('.main-page-user').toggleClass('hidden');
+    $('#insert-future-table-results tr').empty();
     futureReservations.map(booking => {
       $('#insert-future-table-results').append(
         `<tr>
@@ -323,6 +324,16 @@ const domUpdates = {
   toggleFutureFromPast() {
     $('.past-reservations-page').toggleClass('hidden');
     $('.future-reservations-page').toggleClass('hidden');
+  },
+
+  toggleManagerLogIn() {
+    $('.log-in-container').toggleClass('hidden');
+    $('.log-in-container-manager').toggleClass('hidden');
+  },
+
+  toggleUserLogIn() {
+    $('.log-in-container').toggleClass('hidden');
+    $('.log-in-container-manager').toggleClass('hidden');
   }
 
 }
