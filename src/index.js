@@ -11,7 +11,7 @@ import './images/booking.png';
 import './images/cancel-btn.png';
 import './css/base.scss';
 import domUpdates from './domUpdates';
-import scripts from './scripts';
+
 
 let userData;
 let bookingsData;
@@ -118,8 +118,18 @@ const index = {
       .then(response => response.json())
       .then(result => console.log(result))
       .then(alert("The Reservation was Cancelled"))
-
       .catch(err => console.log(err))
+  },
+
+  reloadData() {
+    this.fetchData().then(data => {
+        userData = data.users;
+        bookingsData = data.bookings;
+        roomsData = data.rooms;
+      }).then(function() {
+        index.loadData(userData, bookingsData, roomsData)
+      })
+      .catch(error => console.log(error.message))
   }
 }
 
@@ -252,10 +262,12 @@ $('.search-results-cards').on('click', function(event) {
 
 $('#hide-room-card').on('click', function(event) {
   domUpdates.clearBookingCard();
+  domUpdates.displayAllAvailableRooms(rooms.getAvailableRoomsByDate(selectedDate, bookingsData))
 });
 
 $('#book-now-user').on('click', function(event) {
   index.postBooking(index.stageUserBooking(selectedDate, user, roomCardId));
+  index.reloadData();
 });
 
 $('#upcoming-reservations-main').on('click', function(event) {
@@ -277,7 +289,6 @@ $('#upcoming-to-past').on('click', function(event) {
   user.populateUserBookings(bookingsData)
   domUpdates.displayPastFromFuture(user.filterPastBookings(dateToday), user.calculateUserSpending(roomsData), roomsData, user);
   domUpdates.toggleFutureFromPast();
-
 });
 
 $('#user-reservations-bookings').on('click', function(event) {
@@ -295,6 +306,8 @@ $('#manager-user-future-bookings').on('click', function(event) {
   if (event.target.classList.contains('cancel-btn')) {
     index.confirmCancelationStage(event.target.dataset.id);
     domUpdates.closeCancelationCard();
+    index.reloadData();
+    user.populateUserBookings(bookingsData);
   }
 });
 
@@ -313,7 +326,7 @@ $('#return-to-users-page').on('click', function(event) {
 $('#book-user').on('click', function(event) {
   if ($('#manager-datepicker').val()) {
     managerSelectedDate = $('#manager-datepicker').val();
-    domUpdates.managerBookingCard(rooms.getAvailableRoomsByDate(managerSelectedDate, bookingsData), user)
+    domUpdates.managerBookingCard(rooms.getAvailableRoomsByDate(managerSelectedDate, bookingsData), user);
   }
 });
 
@@ -322,6 +335,7 @@ $('#manager-user-booking-table').on('click', function(event) {
   if (event.target.classList.contains('booking-btn')) {
     index.postBooking(index.stageUserBooking(managerSelectedDate, user, roomId));
     domUpdates.closeCancelationCardFromBooking();
+    index.reloadData();
   }
 });
 
@@ -335,12 +349,6 @@ $('#return-to-manager-home').on('click', function(event) {
 
 $('#return-to-date-select').on('click', function(event) {
   domUpdates.returnToDateSelect();
-})
-
-
-
-
-
-
+});
 
 export default index;

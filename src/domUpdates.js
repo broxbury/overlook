@@ -11,7 +11,7 @@ const domUpdates = {
       if (password !== 'overlook2020') {
         alert('Please enter a valid Password')
       }
-      if (!userName !== '' && !password !== '') {
+      if (!userName !== '' && password === 'overlook2020') {
         index.createUser(userName)
         $('.log-in').toggleClass('hidden');
         $('.main-page').toggleClass('hidden')
@@ -41,7 +41,7 @@ const domUpdates = {
       $('.user-results').toggleClass('hidden');
       roomsToDisplay.map(room => {
         $(`${pageToDisplay}`).append(
-          `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
+          `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}" tabindex="0">
         <section class="room-info">
           <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
           <h3>Cost Per Night: $${room.costPerNight}</h3>
@@ -72,6 +72,7 @@ const domUpdates = {
   showPastReservations(userBookings, amountSpent, roomsData, user) {
     $('.total-cost').empty();
     $('.insert-table-data tr').remove();
+    $('#insert-manager-past-bookings tr').remove()
     userBookings.map(booking => {
       $('.insert-table-data').append(
         `<tr>
@@ -110,7 +111,7 @@ const domUpdates = {
     $('.manager-search').toggleClass('hidden');
     userData.map(user => {
       $('.user-display').append(`
-        <section class="user-card" data-id="${user.id}">
+        <section class="user-card" data-id="${user.id}" tabindex="0">
           <h3 class="user-card-header" data-id="${user.id}">${user.name.toUpperCase()}</h3>
       </section>`);
     });
@@ -159,9 +160,10 @@ const domUpdates = {
     $('#insert-results-here').empty()
     rooms.map(room => {
       $(`${'#insert-results-here'}`).append(
-        `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
+        `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}" tabindex="0">
         <section class="room-info">
-          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number} Cost Per Night: $${room.costPerNight}</h3>
+        <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
+        <h3>Cost Per Night: $${room.costPerNight}</h3>
         <section class="room-icons">
         </section>
         </section>
@@ -170,15 +172,13 @@ const domUpdates = {
   },
 
   displayAllAvailableRooms(rooms) {
-    $('.filter-header').each(function() {
-      $(this).removeClass('active-button')
-    });
     $('#insert-results-here').empty()
     rooms.map(room => {
       $('#insert-results-here').append(
-        `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}">
+        `<section class="room-card-${room.roomType.replace(' ', '-')} roomcard" data-id="${room.number}" tabindex="0">
         <section class="room-info">
-          <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number} Cost Per Night: $${room.costPerNight}</h3>
+        <h3 class="room-card-header">${room.roomType.toUpperCase()} No. ${room.number}</h3>
+        <h3>Cost Per Night: $${room.costPerNight}</h3>
         <section class="room-icons">
         </section>
         </section>
@@ -200,7 +200,6 @@ const domUpdates = {
       $(this).empty()
     });
   },
-
 
   displayUpcomingReservations(futureReservations, user, roomsData) {
     $('.bookings-main').toggleClass('hidden');
@@ -263,7 +262,7 @@ const domUpdates = {
           <td>${booking.roomNumber}</td>
           <td>${booking.date}</td>
           <td>${booking.id}</td>
-          <td class="cancel-booking-item"><img class="cancel-btn" data-id="${booking.id}" src="./images/cancel-btn.png"></td>
+          <td class="cancel-booking-item"><img class="cancel-btn" data-id="${booking.id}" src="./images/cancel-btn.png" tabindex="0"></td>
       </tr>`
       );
     });
@@ -293,7 +292,7 @@ const domUpdates = {
           <td>${room.numBeds}</td>
           <td>${room.bedSize}</td>
           <td>$${room.costPerNight}</td>
-          <td class="cancel-booking-item"><img class="booking-btn" data-id="${room.number}" src="./images/booking.png"></td>
+          <td class="cancel-booking-item"><img class="booking-btn" data-id="${room.number}" src="./images/booking.png" tabindex="0"></td>
       </tr>`
       );
     });
@@ -334,7 +333,9 @@ const domUpdates = {
   toggleUserLogIn() {
     $('.log-in-container').toggleClass('hidden');
     $('.log-in-container-manager').toggleClass('hidden');
-  }
+  },
+
+
 
 }
 export default domUpdates;

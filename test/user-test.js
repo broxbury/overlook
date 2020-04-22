@@ -6,6 +6,12 @@ import Bookings from '../src/bookings';
 import Rooms from '../src/rooms';
 import User from '../src/user';
 
+const chai = require('chai');
+const spies = require('chai-spies');
+chai.use(spies);
+//
+// import index from '..src/index.js';
+// import domUpdates from '../src/domUpdates';
 
 describe('User', function() {
   let user1;
@@ -15,6 +21,7 @@ describe('User', function() {
   let roomsData;
 
   beforeEach(function() {
+    chai.spy.on(User, ['managerSearchByUser'], () => null)
 
     bookingsData = [{
         "id": "5fwrgu4i7k55hl6t8",
@@ -136,6 +143,10 @@ describe('User', function() {
     users = [user1, user2]
   });
 
+  afterEach(() => {
+  chai.spy.restore(User);
+});
+
   it('should take in a userId and name', function() {
     expect(user1.id).to.equal(1);
     expect(user1.name).to.equal('Leatha Ullrich')
@@ -195,7 +206,7 @@ describe('User', function() {
         {
           id: '5fwrgu4i7k55hl6uy',
           userID: 2,
-          date: '2020/01/24',
+          date: '2021/01/24',
           roomNumber: 19,
           roomServiceCharges: []
         }
@@ -221,7 +232,7 @@ describe('User', function() {
     ]);
   });
 
-  it.only('should return an array of a users previous bookings', function() {
+  it('should return an array of a users previous bookings', function() {
     user2.populateUserBookings(bookingsData);
     expect(user2.filterPastBookings('2022/01/24')).to.deep.equal([
       {
@@ -239,6 +250,6 @@ describe('User', function() {
         "roomServiceCharges": []
       }
     ]);
-  });
+  });  
 
 })

@@ -119,7 +119,7 @@ $cancel-red: #F98B88;
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem;
-  width: 95%;
+  width: 100%;
   height: 8%;
 }
 
@@ -199,6 +199,10 @@ body {
   height: 100vh;
 }
 
+.label {
+  visibility: hidden;
+}
+
 .log-in-btn {
   @include log-in-btn;
 }
@@ -250,11 +254,11 @@ body {
 }
 
 .manager-log-in {
-  @include log-in-page
+  @include log-in-page;
 }
 
 .user-log-in {
-  @include log-in-page
+  @include log-in-page;
 }
 
 #toggle-manager-log-in {
@@ -278,10 +282,12 @@ body {
 
 .user-name-input {
   @include main-page-input;
+    margin-top: 2em;
 }
 
 .user-name-input-manager {
-  @include main-page-input
+  @include main-page-input;
+    margin-top: 2em;
 }
 
 .password-input {
@@ -550,9 +556,8 @@ th {
 
 .user-details-manager {
   display: grid;
-  margin-top: 7%;
   margin-left: 14%;
-  height: 100vh;
+  height: 80vh;
 }
 
 .cancel-user-booking {
@@ -632,7 +637,7 @@ th {
   left: 26%;
   border: 2px solid white;
   border-radius: 3px;
-  background-color: grey;
+  background-color: antiquewhite;
   width: 50%;
   height: 20rem;
 }

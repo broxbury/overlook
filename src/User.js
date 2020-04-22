@@ -25,15 +25,6 @@ class User {
     return rooms.find(room => booking.roomNumber === room.number).costPerNight
   }
 
-  managerSearchByUser(users, roomsData) {
-    let currentUser = users.find(user => user.name === this.name);
-    return {
-      name: currentUser.name,
-      bookingHistory: this.bookings,
-      amountSpent: this.calculateUserSpending(roomsData)
-    }
-  }
-
   filterUpcomingBookings(date) {
     return this.bookings.filter(booking => booking.date > date)
   }
