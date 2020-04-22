@@ -1,6 +1,6 @@
 # Overlook 2020 Hotel Management Site
 
-![user-new](https://user-images.githubusercontent.com/58377277/79931671-c0f35a00-8408-11ea-8270-2f51ed22bdc6.gif)
+![usernew](https://user-images.githubusercontent.com/58377277/79931865-40812900-8409-11ea-950b-97bdca85b231.gif)
 
 ## Installation 
 
@@ -30,6 +30,6 @@
  
  You can search for a specific user by name, and then view their booking history, and total amount spent by that user at your hotel.
  
- ![manager-create-booking](https://user-images.githubusercontent.com/58377277/79931463-4c202000-8408-11ea-88a3-08099be500e2.gif)
+
  
 
