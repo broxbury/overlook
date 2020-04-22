@@ -1,5 +1,7 @@
 # Overlook 2020 Hotel Management Site
 
+<img width="1411" alt="Screen Shot 2020-04-21 at 5 44 47 PM" src="https://user-images.githubusercontent.com/58377277/79933650-dc149880-840d-11ea-9ed1-59f4d179cfdf.png">
+
 ![usernew](https://user-images.githubusercontent.com/58377277/79931865-40812900-8409-11ea-950b-97bdca85b231.gif)
 
 ## Installation 
