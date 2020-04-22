@@ -1,42 +1,42 @@
 import $ from 'jquery';
 import index from './index';
-import User from './User';
+
 
 
 const domUpdates = {
-    verifyUserSignIn(userName, password) {
-      if (userName === '') {
-        alert('Please enter a Username')
-      }
-      if (password !== 'overlook2020') {
-        alert('Please enter a valid Password')
-      }
-      if (!userName !== '' && password === 'overlook2020') {
-        index.createUser(userName)
-        $('.log-in').toggleClass('hidden');
-        $('.main-page').toggleClass('hidden')
-      }
-    },
+  verifyUserSignIn(userName, password) {
+    if (userName === '') {
+      alert('Please enter a Username')
+    }
+    if (password !== 'overlook2020') {
+      alert('Please enter a valid Password')
+    }
+    if (!userName !== '' && password === 'overlook2020') {
+      index.createUser(userName)
+      $('.log-in').toggleClass('hidden');
+      $('.main-page').toggleClass('hidden')
+    }
+  },
 
-    verifyManager(userName, password) {
-      if (userName !== 'manager') {
-        alert('Please enter a valid Username')
-      }
-      if (password !== 'overlook2020') {
-        alert('Please enter a valid Password')
-      }
-      if (userName === 'manager' && password === 'overlook2020') {
-        $('.log-in').toggleClass('hidden');
-        $('.manager-page').toggleClass('hidden');
-      }
-    },
+  verifyManager(userName, password) {
+    if (userName !== 'manager') {
+      alert('Please enter a valid Username')
+    }
+    if (password !== 'overlook2020') {
+      alert('Please enter a valid Password')
+    }
+    if (userName === 'manager' && password === 'overlook2020') {
+      $('.log-in').toggleClass('hidden');
+      $('.manager-page').toggleClass('hidden');
+    }
+  },
 
-    makeResultsCardsHTML(roomsToDisplay, pageToDisplay) {
-      $('.filter-header').each(function() {
-        $(this).removeClass('active-button')
-      });
-      $(`${pageToDisplay}`).empty();
-      if (roomsToDisplay.length > 0) {
+  makeResultsCardsHTML(roomsToDisplay, pageToDisplay) {
+    $('.filter-header').each(function() {
+      $(this).removeClass('active-button')
+    });
+    $(`${pageToDisplay}`).empty();
+    if (roomsToDisplay.length > 0) {
       $('.bookings-main').toggleClass('hidden');
       $('.user-results').toggleClass('hidden');
       roomsToDisplay.map(room => {
@@ -136,7 +136,7 @@ const domUpdates = {
     $(`.user-card[data-id="${userId}"]`).addClass('hidden')
   },
 
-  displayUserPage(user, amountSpent) {
+  displayUserPage() {
     $('.filter-header').each(function() {
       $(this).removeClass('active-button')
     });
@@ -144,7 +144,7 @@ const domUpdates = {
     $('.manage-user').toggleClass('hidden');
   },
 
-  displayRooms(type, roomsToDisplay, roomsData) {
+  displayRooms(type, roomsToDisplay) {
     $('.filter-header').each(function() {
       $(this).removeClass('active-button')
     });
@@ -281,7 +281,7 @@ const domUpdates = {
     $('.manage-user').toggleClass('hidden');
   },
 
-  managerBookingCard(availableRooms, user) {
+  managerBookingCard(availableRooms) {
     $('#manager-user-bookings-insert tr').remove();
     $('.manager-card-container-booking').toggleClass('hidden');
     availableRooms.forEach(room => {

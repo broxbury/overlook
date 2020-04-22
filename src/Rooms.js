@@ -6,10 +6,11 @@ class Rooms {
   getAvailableRoomsByDate(date, bookings) {
     let bookingsByDate = bookings.filter(booking => booking.date === date);
     let roomsBookedbyDate = bookingsByDate.reduce((array, booking) => {
-     array.push(this.rooms.find(room => booking.roomNumber === room.number))
+      array.push(this.rooms.find(room => booking.roomNumber === room.number))
       return array
     }, []);
-    return this.rooms.filter(bookedRoom => !roomsBookedbyDate.includes(bookedRoom))
+    return this.rooms.filter(bookedRoom => !roomsBookedbyDate
+      .includes(bookedRoom))
   }
 
   filterRoomsByType(availableRooms, roomType) {
