@@ -20,7 +20,7 @@
  
  ## Funcionality 
  
- ![user-room-filter-and-book](https://user-images.githubusercontent.com/58377277/79931415-3579c900-8408-11ea-917f-67149f6f89ae.gif)
+ ![newuserfilter](https://user-images.githubusercontent.com/58377277/79932903-c43c1500-840b-11ea-8bde-947a7bcae813.gif)
  
  This site allows users to browse and search for available rooms at the hotel. You can search for available rooms by date, and then filter the rooms by type to find the perfect room! Users can then submit a booking. 
  
