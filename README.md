@@ -26,9 +26,11 @@
  
  As a manager, you are able to view detailed information about your guests, and book or cancel a reservation for them!
  
- ![manager-booking](https://user-images.githubusercontent.com/58377277/79931334-04999400-8408-11ea-997a-44c4b7d0c870.gif)
+ ![manager-search-new](https://user-images.githubusercontent.com/58377277/79932022-b1284580-8409-11ea-8ca8-a55e9cf85868.gif)
  
  You can search for a specific user by name, and then view their booking history, and total amount spent by that user at your hotel.
+ 
+ ![manager-booking](https://user-images.githubusercontent.com/58377277/79931334-04999400-8408-11ea-997a-44c4b7d0c870.gif)
  
 
  
