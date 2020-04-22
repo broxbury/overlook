@@ -1,6 +1,6 @@
 # Overlook 2020 Hotel Management Site
 
-![user-calendar](https://user-images.githubusercontent.com/58377277/79931387-23982600-8408-11ea-9208-d5391dfcc2ec.gif)
+![user-new](https://user-images.githubusercontent.com/58377277/79931671-c0f35a00-8408-11ea-8270-2f51ed22bdc6.gif)
 
 ## Installation 
 
